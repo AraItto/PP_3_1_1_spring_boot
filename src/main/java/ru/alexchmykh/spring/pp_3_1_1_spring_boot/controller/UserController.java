@@ -1,6 +1,5 @@
 package ru.alexchmykh.spring.pp_3_1_1_spring_boot.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,14 +11,13 @@ public class UserController {
 
     private final UserService userService;
 
-    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping(value = "/")
     public String printUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("users", userService.getListUsers());
         return "users";
     }
 
@@ -31,7 +29,7 @@ public class UserController {
 
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") User user){
-        userService.save(user);
+        userService.addUser(user);
         return "redirect:/";
     }
 

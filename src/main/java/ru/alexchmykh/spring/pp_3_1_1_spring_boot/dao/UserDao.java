@@ -1,11 +1,10 @@
-package ru.alexchmykh.spring.pp_3_1_1_spring_boot.service;
-
+package ru.alexchmykh.spring.pp_3_1_1_spring_boot.dao;
 
 import ru.alexchmykh.spring.pp_3_1_1_spring_boot.model.User;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserDao {
 
     void addUser(User user);
 
